@@ -1,6 +1,6 @@
 [submodule "extensions/game-client-components"]
 	path = extensions/game-client-components
-	url = ../../ricky.nguyen/game-client-components.git
+	url = ../../game-client-poc/game-client-components.git
 [submodule "extensions/game-client-base"]
 	path = extensions/game-client-base
-	url = ../../ricky.nguyen/game-client-base.git
+	url = ../../game-client-poc/game-client-base.git

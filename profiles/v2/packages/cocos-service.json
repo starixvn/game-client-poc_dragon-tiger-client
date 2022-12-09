@@ -1,0 +1,17 @@
+{
+  "options": {
+    "web-desktop": {
+      "configID": "b4fd0e",
+      "services": []
+    },
+    "web-mobile": {
+      "configID": "b4fd0e",
+      "services": []
+    }
+  },
+  "builder-options": {
+    "configID": "b4fd0e",
+    "services": [],
+    "__version__": "3.0.4"
+  }
+}

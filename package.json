@@ -3,9 +3,11 @@
     "version": "3.6.2"
   },
   "dependencies": {
+    "inversify": "^6.0.1",
     "lodash": "^4.17.21",
     "mobx": "^6.7.0",
-    "mobx-cocos": "^1.1.4"
+    "mobx-cocos": "^1.1.4",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.191"
@@ -14,7 +16,7 @@
   "scripts": {
     "\n# IMAGE SCRIPTS:": "",
     "build-web-mobile": "C:\\CocosDashboard_1.0.9\\resources\\.editors\\Creator\\3.6.2\\CocosCreator.exe --project ./ --build \"platform=web-mobile;debug=false\"",
-    "build-web-mobile-ci": "C:\\cocos-editors\\resources\\.editors\\Creator\\3.6.2\\CocosCreator.exe --project ./ --build \"platform=web-mobile;debug=false\"",
+    "build-web-mobile-ci": "/Applications/CocosCreator/Creator/3.6.2/CocosCreator.app/Contents/MacOS/CocosCreator --project ./ --build \"platform=web-mobile;debug=false\"",
     "image:create": "docker build -t cocos-web-mobile .",
     "image:remove": "docker rm cocos-web-mobile-container -f & docker rmi cocos-web-mobile:latest -f",
     "image:run": "docker run --name cocos-web-mobile-container -dp 8188:80 cocos-web-mobile",

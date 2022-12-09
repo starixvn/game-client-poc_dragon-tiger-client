@@ -1,25 +1,70 @@
+include:
+  - project: "ci/repos-ci/pentagon_l1_dragon_tiger_client_test"
+    ref: master
+    file: "gitlab-ci.yml"
+
 variables:
-     GIT_SUBMODULE_STRATEGY: recursive
-     CI_JOB_TOKEN: es7VysP4Bek_M3ksbdyp
+  GIT_SUBMODULE_STRATEGY: recursive
+  CI_JOB_TOKEN: es7VysP4Bek_M3ksbdyp
+  COCOS_VERSION: "3.6.2"
 
-stages:
-  - build
-
-build-cocos:
-  stage: build
-  tags:
-    - runner-windows
+.build_cocos_creator_script: &build_cocos_creator_script
+  stage: build-cocos-web
   script:
-    - call npm install
-    - cd ./extensions/game-client-components && call npm install
+    - echo "====== Build Cocos Web Mobile ======"
+    - |
+      if [[ -d "./build/web-mobile" ]]; then
+        echo "Using cache with key $CI_COMMIT_SHA"
+        exit 0
+      fi
+    - npm install
+    - cd ./extensions/game-client-components && npm install
     - cd ..
-    - cd game-client-base && call npm install
+    - cd game-client-base && npm install
     - cd ../../
-    - npm run build-web-mobile-ci
+    - /Applications/CocosCreator/Creator/3.6.2/CocosCreator.app/Contents/MacOS/CocosCreator --project ./ --build "platform=web-mobile;debug=false;webOrientation=landscape;md5Cache=true"
+  tags:
+    - cocos-new
   artifacts:
     when: always
     paths:
       - ./build/web-mobile
     expire_in: 1 day
-  allow_failure:
-    exit_codes: 36
+  cache:
+    - key:
+        files:
+          - package.json
+          - yarn.lock
+      paths:
+        - node_modules
+    - key: $CI_COMMIT_SHORT_SHA
+      paths:
+        - build
+
+.base_build_cocos_web_l1_dragon_tiger_client_test:
+  <<: *build_cocos_creator_script
+  extends:
+    - .deploy_vars_l1_dragon_tiger_client_test
+    - .build:image:l1_dragon_tiger_client_test:rules
+  allow_failure: true
+# stages:
+#   - build
+
+# build-cocos:
+#   stage: build
+#   tags:
+#     - runner-windows
+#   script:
+#     - call npm install
+#     - cd ./extensions/game-client-components && call npm install
+#     - cd ..
+#     - cd game-client-base && call npm install
+#     - cd ../../
+#     - npm run build-web-mobile-ci
+#   artifacts:
+#     when: always
+#     paths:
+#       - ./build/web-mobile
+#     expire_in: 1 day
+#   allow_failure:
+#     exit_codes: 36

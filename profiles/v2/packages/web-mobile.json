@@ -1,0 +1,47 @@
+{
+  "common": {
+    "outputName": "web-mobile",
+    "polyfills": {
+      "asyncFunctions": true,
+      "coreJs": true
+    },
+    "mainBundleCompressionType": "none",
+    "platform": "web-mobile",
+    "startScene": "09865db2-6724-4015-8b10-b31256764b2b",
+    "scenes": [
+      {
+        "url": "db://game-client-component/prefab-loader/samples/prefab-loader-tests.scene",
+        "uuid": "1eeb26df-db94-4271-9b7f-1e2b31479d72",
+        "inBundle": false
+      },
+      {
+        "url": "db://game-client-component/big-road-scoreboard/samples/test-scoreboard.scene",
+        "uuid": "7f5a23d8-9b0e-431e-8240-8c56d9813398",
+        "inBundle": false
+      },
+      {
+        "url": "db://assets/experiments/main.scene",
+        "uuid": "f20a528d-615d-42f8-81b0-a01ab41ad513",
+        "inBundle": false
+      },
+      {
+        "url": "db://assets/dragon-tiger/dragon-tiger.scene",
+        "uuid": "09865db2-6724-4015-8b10-b31256764b2b",
+        "inBundle": false
+      },
+      {
+        "url": "db://assets/lobby/lobby-main.scene",
+        "uuid": "26b77992-ed84-4cf9-83b0-b921ffdbcf20",
+        "inBundle": false
+      }
+    ],
+    "buildStageGroup": {
+      "build": []
+    },
+    "md5Cache": true,
+    "mainBundleIsRemote": false,
+    "useBuiltinServer": false,
+    "sourceMaps": false,
+    "debug": false
+  }
+}
