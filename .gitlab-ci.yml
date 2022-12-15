@@ -1,5 +1,5 @@
 include:
-  - project: "ci/repos-ci/pentagon_l1_dragon_tiger_client_test"
+  - project: "ci/repos-ci/pentagon_l1_lobby_test"
     ref: master
     file: "gitlab-ci.yml"
 
@@ -41,11 +41,11 @@ variables:
       paths:
         - build
 
-.base_build_cocos_web_l1_dragon_tiger_client_test:
+.base_build_cocos_web_l1_lobby_test:
   <<: *build_cocos_creator_script
   extends:
-    - .deploy_vars_l1_dragon_tiger_client_test
-    - .build:image:l1_dragon_tiger_client_test:rules
+    - .deploy_vars_l1_lobby_test
+    - .build:image:l1_lobby_test:rules
   allow_failure: true
 # stages:
 #   - build
