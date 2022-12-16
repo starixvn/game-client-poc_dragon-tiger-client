@@ -18,7 +18,7 @@ export class LobbyMain extends Component {
         }
       );
     } else {
-      window.location.href = `${window.location.origin}/poc-game-client-${gameId}`;
+      window.location.href = `${window.location.origin}/poc-game-client-${gameId}/`;
     }
   }
 }
