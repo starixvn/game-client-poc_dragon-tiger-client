@@ -59,7 +59,7 @@ export class DragonTiger extends MobxComponent {
         error && console.log(error.message);
       });
     } else {
-      window.location.href = `${window.location.origin}/poc-game-client-lobby`;
+      window.location.href = `${window.location.origin}/poc-game-client-lobby/`;
     }
   }
 }
